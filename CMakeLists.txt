@@ -3,19 +3,20 @@ project(learn-opengl)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(GLFW_INCLUDES 
-  "${CMAKE_SOURCE_DIR}/dependencies/glfw/include/"
-)
+# turn off building GLFW docs, tests, and examples
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-set(GLFW_LIBRARY
-  "${CMAKE_SOURCE_DIR}/dependencies/glfw/lib-arm64/libglfw3.a"
-)
+# GLFW
+add_subdirectory("${CMAKE_SOURCE_DIR}/dependencies/glfw")
+
+find_package(OpenGL REQUIRED)
 
 #################### INCLUDES ####################
 
 include_directories(${PROJECT_NAME} PUBLIC
   "${CMAKE_SOURCE_DIR}/include"
-  "${GLFW_INCLUDES}"
 )
 
 ################### EXECUTABLE ###################
@@ -24,10 +25,8 @@ add_executable(${PROJECT_NAME} src/main.cpp)
 
 #################### LIBRARY ####################
 
-target_link_directories(${PROJECT_NAME} PUBLIC
-  "${GLFW_INCLUDES}"
+target_link_libraries(${PROJECT_NAME} PUBLIC
+  glfw
+  OpenGL::GL
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC
-  "${GLFW_LIBRARY}"
-)
