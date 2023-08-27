@@ -3,8 +3,31 @@
 Repository for learning and building skills in OpenGL
 
 
+## File structure
+
+learnOpenGL
+|-- dependencies
+    |-- glad
+        |-- include
+            |-- KHR
+                |-- khrplatform.h
+            |-- glad
+                |-- glad.h
+        |-- src
+            |-- glad.c
+    |-- glfw
+        |-- include
+            |-- GLFW
+                |-- glfw3.h
+                |-- glfw3native.h
+|-- include
+|-- src
+    |-- main.cpp
+
+
 ## Dependencies
 * gflw
+* glad
 
 ## Resources
 * https://docs.gl/

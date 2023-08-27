@@ -17,19 +17,32 @@ set(GLAD_SRC
   ${CMAKE_SOURCE_DIR}/dependencies/glad/src
 )
 
-#################### INCLUDES ####################
+# ----------------------------------------
+# INCLUDES
+# ----------------------------------------
 
 include_directories(${PROJECT_NAME} PUBLIC
   ${CMAKE_SOURCE_DIR}/include
   ${CMAKE_SOURCE_DIR}/dependencies/glad/include
 )
 
+# ----------------------------------------
+# SOURCES
+# ----------------------------------------
 
-################### EXECUTABLE ###################
+set(OPENGL_SOURCES
+  src/main.cpp
+  ${GLAD_SRC}/glad.c
+)
+# ----------------------------------------
+# EXECUTABLE
+# ----------------------------------------
 
-add_executable(${PROJECT_NAME} ${GLAD_SRC}/glad.c src/main.cpp)
+add_executable(${PROJECT_NAME}  ${OPENGL_SOURCES})
 
-#################### LIBRARY ####################
+# ----------------------------------------
+# LIBRARY
+# ----------------------------------------
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
   glfw
