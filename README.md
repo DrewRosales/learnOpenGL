@@ -5,10 +5,7 @@ Repository for learning and building skills in OpenGL
 
 ## File structure
 
-<<<<<<< HEAD
-=======
 ```
->>>>>>> 4d97500 (Updated readme and small CMAKE changes)
 learnOpenGL
 |-- dependencies
     |-- glad
@@ -27,11 +24,7 @@ learnOpenGL
 |-- include
 |-- src
     |-- main.cpp
-<<<<<<< HEAD
-
-=======
 ```
->>>>>>> 4d97500 (Updated readme and small CMAKE changes)
 
 ## Dependencies
 * gflw
