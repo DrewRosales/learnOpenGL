@@ -10,18 +10,24 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 # GLFW
 add_subdirectory("${CMAKE_SOURCE_DIR}/dependencies/glfw")
-
 find_package(OpenGL REQUIRED)
+
+# GLAD
+set(GLAD_SRC
+  ${CMAKE_SOURCE_DIR}/dependencies/glad/src
+)
 
 #################### INCLUDES ####################
 
 include_directories(${PROJECT_NAME} PUBLIC
-  "${CMAKE_SOURCE_DIR}/include"
+  ${CMAKE_SOURCE_DIR}/include
+  ${CMAKE_SOURCE_DIR}/dependencies/glad/include
 )
+
 
 ################### EXECUTABLE ###################
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} ${GLAD_SRC}/glad.c src/main.cpp)
 
 #################### LIBRARY ####################
 
