@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(learn-opengl)
+project(hazel)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -30,18 +30,18 @@ include_directories(${PROJECT_NAME} PUBLIC
 # SOURCES
 # ----------------------------------------
 
-set(OPENGL_SOURCES
-  src/main.cpp
+set(HAZEL_SOURCES
+  src/Application.cpp
   ${GLAD_SRC}/glad.c
 )
 # ----------------------------------------
 # EXECUTABLE
 # ----------------------------------------
 
-add_executable(${PROJECT_NAME}  ${OPENGL_SOURCES})
+add_library(${PROJECT_NAME}  ${HAZEL_SOURCES})
 
 # ----------------------------------------
-# LIBRARY
+# DEPENDENCIES
 # ----------------------------------------
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -49,3 +49,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
   OpenGL::GL
 )
 
+# ----------------------------------------
+# APPLICATION
+# ----------------------------------------
+
+add_subdirectory(app)
