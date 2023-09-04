@@ -1,3 +1,3 @@
-#include <Application.h>
+#include <hazel.h>
 
 int main() { hazel::Application testApp; }

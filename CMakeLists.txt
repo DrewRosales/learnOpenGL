@@ -22,7 +22,8 @@ set(GLAD_SRC
 # ----------------------------------------
 
 include_directories(${PROJECT_NAME} PUBLIC
-  ${CMAKE_SOURCE_DIR}/include
+  ${CMAKE_SOURCE_DIR}/Hazel
+  ${CMAKE_SOURCE_DIR}/Hazel/include
   ${CMAKE_SOURCE_DIR}/dependencies/glad/include
 )
 
@@ -31,7 +32,7 @@ include_directories(${PROJECT_NAME} PUBLIC
 # ----------------------------------------
 
 set(HAZEL_SOURCES
-  src/Application.cpp
+  Hazel/src/Application.cpp
   ${GLAD_SRC}/glad.c
 )
 # ----------------------------------------
